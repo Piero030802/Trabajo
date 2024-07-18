@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información General de Subreddits</title>
+    <!-- Incluir Bootstrap para estilos básicos -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- Estilos personalizados si es necesario -->
+    <style>
+        /* Estilos adicionales si los necesitas */
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Tabla con subreddits y cantidad de ups -->
+                <h3 class="mb-3">Subreddits con Mayor Cantidad de Ups</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Subreddit</th>
+                            <th>Cantidad de Ups</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for subreddit, ups_count in subreddit_ups.items() %}
+                        <tr>
+                            <td>{{ subreddit }}</td>
+                            <td>{{ ups_count }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <!-- Gráfico circular generado con Plotly -->
+                <h3 class="mb-3">Cantidad de Anuncios por Subreddit</h3>
+                <img src="{{ url_for('static', filename='pie_chart.png') }}" alt="Gráfico Circular" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+    <!-- Incluir Plotly.js para visualización del gráfico -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Scripts adicionales si los necesitas -->
+    <script>
+        // Tu script para cargar y mostrar el gráfico con Plotly.js si es necesario
+    </script>
+</body>
+</html>
+
