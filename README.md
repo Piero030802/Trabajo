@@ -12,13 +12,12 @@ El objetivo de este proyecto es extraer, procesar y visualizar datos de anuncios
 Para obtener la información necesaria de los anuncios en Reddit, se utilizó la API de Reddit. Específicamente, se accedió al endpoint que permite obtener información de los posts en un subreddit.
 
 Endpoint Principal Utilizado:
-GET /r/{subreddit}/new/.json?limit=50
-Parámetros Utilizados
-subreddit: Nombre del subreddit del que se quieren obtener los anuncios. Ejemplo: advertising.
-limit: Número de posts a obtener por solicitud. Por defecto, Reddit devuelve hasta 25 posts.
-Código para Extraer Datos de la API
-python
-Copiar código
+### GET /r/{subreddit}/new/.json?limit=50
+### Parámetros Utilizados
+#### subreddit: Nombre del subreddit del que se quieren obtener los anuncios. Ejemplo: advertising.
+#### limit: Número de posts a obtener por solicitud. Por defecto, Reddit devuelve hasta 25 posts.
+#### Código para Extraer Datos de la API
+```python
 import requests
 
 def obtener_anuncios(subreddit, limit=50):
@@ -31,7 +30,7 @@ def obtener_anuncios(subreddit, limit=50):
     else:
         print(f"Error al obtener anuncios de {subreddit}: {response.status_code}")
         return []
-
+```
 # Ejemplo de uso
 - anuncios = obtener_anuncios('advertising')
 ## Desarrollo del Extractor de Datos
